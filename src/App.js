@@ -9,20 +9,23 @@ import { selectTodoList } from './features/todoSlice'
 function App() {
   const todoList = useSelector(selectTodoList);
 
+  console.log(todoList);
+
   return (
     <div className="app">
       <div className="app__container">
-        <div className="app__todoContainer">
+        <ul className="app__todoContainer">
           {
-            todoList.map(item =>( 
+            todoList.map(item =>(
               <TodoItem 
+                key={item.id}
                 name={item.item}
                 done={item.done}
                 id={item.id}
               />
             ))
           }
-        </div>
+        </ul>
 
         <Input />
       </div>
